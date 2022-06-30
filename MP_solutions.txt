@@ -289,3 +289,25 @@ code segment
     loop loop2
   
     end begin
+    
+LXI H,5000H
+LXI D,5100H
+LXI B,5200H
+XYZ:
+MOV A,M
+CPI 80H
+JC CHECK
+STAX D
+INX D
+INX H
+//MOV A,L
+//CPI O9H
+JNZ XYZ
+CHECK:
+STAX B
+INX H
+INX B
+//MOV A,L
+//CPI O9H
+JNZ XYZ
+HLT
